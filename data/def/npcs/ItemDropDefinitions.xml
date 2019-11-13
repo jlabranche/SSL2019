@@ -1,0 +1,27 @@
+<list>
+<ItemDropDefinition>
+		<id>100</id>
+		<constant>
+			<scrolls>null</scrolls>
+			<charms>null</charms>
+			<drops>
+				<itemDrop>
+					<id>4151</id>
+					<min>1</min>
+					<max>1</max>
+				</itemDrop>
+			</drops>
+		</constant>
+		<common>
+		<drops>
+				<itemDrop>
+					<id>995</id>
+					<min>1</min>
+					<max>1</max>
+				</itemDrop>
+		</drops>
+		</common>
+		<useRareTable>true</useRareTable>
+	</ItemDropDefinition>
+
+</list>

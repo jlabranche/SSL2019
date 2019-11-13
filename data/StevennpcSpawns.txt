@@ -1,0 +1,12 @@
+
+	<NpcSpawnDefinition>
+	<!-->Dad<-->
+		<id>4130</id>
+		<location>
+			<x>2541</x>
+			<y>3091</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>

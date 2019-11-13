@@ -1,0 +1,103 @@
+<list>
+	<!--> Yanille <-->
+<NpcSpawnDefinition>
+	<!-->Farmer<-->
+		<id>3257</id>
+		<location>
+			<x>2599</x>
+			<y>3103</y>
+			<z>0</z>
+		</location>
+		<walk>false</walk>
+		<face>1</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Shop keeper<-->
+		<id>518</id>
+		<location>
+		<x>2596</x>
+		<y>3105</y>
+		<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Moss giant<-->
+		<id>891</id>
+		<location>
+			<x>2578</x>
+			<y>3083</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Moss giant<-->
+		<id>891</id>
+		<location>
+			<x>2576</x>
+			<y>3078</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Moss giant<-->
+		<id>891</id>
+		<location>
+			<x>2574</x>
+			<y>3081</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Moss giant<-->
+		<id>891</id>
+		<location>
+			<x>2580</x>
+			<y>3077</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Moss giant<-->
+		<id>891</id>
+		<location>
+			<x>2574</x>
+			<y>3077</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Moss giant<-->
+		<id>891</id>
+		<location>
+			<x>2576</x>
+			<y>3085</y>
+			<z>0</z>
+		</location>
+		<walk>true</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	<NpcSpawnDefinition>
+	<!-->Dad<-->
+		<id>4130</id>
+		<location>
+			<x>2544</x>
+			<y>3092</y>
+			<z>0</z>
+		</location>
+		<walk>false</walk>
+		<face>0</face>
+	</NpcSpawnDefinition>
+	
+</list>
