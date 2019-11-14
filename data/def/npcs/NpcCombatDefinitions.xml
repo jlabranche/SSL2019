@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-<NpcCombatDefinition>
-		<!-- Giant Rat -->
-		<id>2856</id>
-		<skills>
-			<skill>
-				<id>3</id>
-				<level>10</level>
-			</skill>
-			</skills>
-		<melee>
-			<melee>
-				<attack>
-					<hitDelay>1</hitDelay>
-					<attackDelay>5</attackDelay>
-				</attack>
-				<max>1</max>
-			</melee>
-		</melee>
-		</NpcCombatDefinition>
-		<!-- Giant Rat -->
 		<!-- Hobgoblin -->
 		<NpcCombatDefinition>
 		<id>3286</id>
@@ -7888,17 +7868,17 @@
 
 	<NpcCombatDefinition>
 		<!-- Giant rat -->
-		<id>87</id>
+		<id>2857</id>
 		<combatType>MELEE</combatType>
 		<respawnTime>30</respawnTime>
 		<block>
-			<id>14861</id>
+			<id>4934</id>
 			<delay>0</delay>
 		</block>
-		<death>
-			<id>14860</id>
-			<delay>0</delay>
-		</death>
+        <death>
+            <id>4935</id>
+            <delay>0</delay>
+        </death>
 		<skills>
 			<skill>
 				<id>0</id>
@@ -7950,7 +7930,7 @@
 					<attackDelay>4</attackDelay>
 				</attack>
 				<animation>
-					<id>14859</id>
+					<id>4933</id>
 					<delay>0</delay>
 				</animation>
 				<max>2</max>

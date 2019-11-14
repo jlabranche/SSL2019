@@ -1,6 +1,7 @@
 package com.mayhem.rs2.content.dialogue.impl;
 
 import com.mayhem.rs2.content.StarterKit;
+import com.mayhem.rs2.content.skill.Skills;
 import com.mayhem.rs2.content.dialogue.Dialogue;
 import com.mayhem.rs2.content.dialogue.DialogueManager;
 import com.mayhem.rs2.content.dialogue.Emotion;
@@ -91,6 +92,7 @@ public class Tutorial extends Dialogue {
 		case 0:
 			end();
 			StarterKit.handle(player, 202051);
+            player.getSkill().addExperience(Skills.HITPOINTS, 1155); // enough xp to get lvl 10 health
 			player.send(new SendInterface(51750));
 			break;
 		}

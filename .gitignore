@@ -10,3 +10,7 @@ data/reports
 data/tickets
 data/saves
 .settings/
+*.swp
+*.swo
+DropEditorVenicillio*/
+

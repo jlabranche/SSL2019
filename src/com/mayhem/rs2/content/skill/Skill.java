@@ -40,19 +40,19 @@ public class Skill {
 	private long lock = 0L;
 	
 	/**
-	 * Melee experience
+	 * Melee experience multiplier
 	 */
-	private int meleeExp = 1000;
+	private int meleeExp = 1;
 	
 	/**
-	 * Range experience
+	 * Range experience multiplier
 	 */
-	private int rangeExp = 1000;
+	private int rangeExp = 1;
 	
 	/**
-	 * Magic experience
+	 * Magic experience multiplier
 	 */
-	private int magicExp = 1000;
+	private int magicExp = 1;
 
 	/**
 	 * Constructs a new skill instance

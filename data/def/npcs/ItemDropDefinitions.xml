@@ -1,5 +1,29 @@
 <list>
-<ItemDropDefinition>
+	<ItemDropDefinition>
+		<id>2857</id>
+		<constant>
+			<scrolls>null</scrolls>
+			<charms>null</charms>
+			<drops>
+				<itemDrop>
+					<id>526</id>
+					<min>1</min>
+					<max>1</max>
+				</itemDrop>
+			</drops>
+		</constant>
+		<common>
+            <drops>
+                <itemDrop>
+                    <id>995</id>
+                    <min>1</min>
+                    <max>24</max>
+                </itemDrop>
+            </drops>
+		</common>
+		<useRareTable>false</useRareTable>
+    </ItemDropDefinition>
+	<ItemDropDefinition>
 		<id>100</id>
 		<constant>
 			<scrolls>null</scrolls>
@@ -11,17 +35,41 @@
 					<max>1</max>
 				</itemDrop>
 			</drops>
-		</constant>
-		<common>
-		<drops>
-				<itemDrop>
-					<id>995</id>
-					<min>1</min>
-					<max>1</max>
-				</itemDrop>
-		</drops>
+        </constant>
+        <common>
+            <drops>
+                <itemDrop>
+                    <id>995</id>
+                    <min>1</min>
+                    <max>1</max>
+                </itemDrop>
+            </drops>
 		</common>
 		<useRareTable>true</useRareTable>
-	</ItemDropDefinition>
+    </ItemDropDefinition>
+    <ItemDropDefinition>
+        <id>4130</id>
+        <constant>
+            <scrolls>null</scrolls>
+            <charms>null</charms>
+            <drops>
+                <itemDrop>
+                    <id>532</id>
+                    <min>1</min>
+                    <max>1</max>
+                </itemDrop>
+            </drops>
+        </constant>
+        <uncommon>
+            <drops>
+                <itemDrop>
+                    <id>1543</id>
+                    <min>1</min>
+                    <max>1</max>
+                </itemDrop>
+            </drops>
+        </uncommon>
+        <useRareTable>true</useRareTable>
+    </ItemDropDefinition>
 
 </list>

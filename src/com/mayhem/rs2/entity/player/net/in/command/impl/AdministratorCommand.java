@@ -347,6 +347,6 @@ public class AdministratorCommand implements Command {
 
 	@Override
 	public boolean meetsRequirements(Player player) {
-		return player.getRights() >= 2 && player.getRights() < 5;
+		return player.isAdmin();
 	}
 }

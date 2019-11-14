@@ -1224,6 +1224,6 @@ public class DeveloperCommand implements Command {
 
 	@Override
 	public boolean meetsRequirements(Player player) {
-		return PlayerConstants.isDeveloper(player);
+		return player.isDeveloper();
 	}
 }

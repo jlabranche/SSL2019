@@ -115,29 +115,30 @@ public class EventManager {
 	public void appendTimer() {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
-			public void run() {	
-				switch (Utility.random(2)) {
+			public void run() {
+				int rand = Utility.random(2);
+				switch (rand) {
 					case 0:
 						setEvent(new BossEvent());
-					    eventAmount[1]++;
-					    System.out.println("Exectuing Event: " + "BossEvent: #" + eventAmount[0]);
+					    eventAmount[rand]++;
+					    System.out.println("Exectuing Event: " + "BossEvent: #" + eventAmount[rand]);
 					    break;
 					case 1:
 						setEvent(new DoubleGold());
-					    eventAmount[2]++;
-					    System.out.println("Exectuing Event: " + "DoubleGold: #" + eventAmount[1]);
+					    eventAmount[rand]++;
+					    System.out.println("Exectuing Event: " + "DoubleGold: #" + eventAmount[rand]);
 						break;
 					case 2:
 						setEvent(new DoubleExperience());
-					    eventAmount[3]++;
-					    System.out.println("Exectuing Event: " + "DoubleExperience: #" + eventAmount[2]);
+					    eventAmount[rand]++;
+					    System.out.println("Exectuing Event: " + "DoubleExperience: #" + eventAmount[rand]);
 						break;
 					default:
 						setEvent(new BossEvent());
-					    eventAmount[1]++;
+					    eventAmount[0]++;
 					    System.out.println("Exectuing Event: " + "BossEvent: #" + eventAmount[0]);
-				  }
-			  }
+				}
+			}
 		}, 120 * 60 * 1000, 120 * 60 * 1000); //Execute every 2 hours.
 	}
 	

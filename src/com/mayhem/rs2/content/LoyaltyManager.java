@@ -36,7 +36,7 @@ public class LoyaltyManager {
 					if (player.getBank().getFreeSlots() > 2) {
 						player.getBank().add(new Item(13307, 500));
 						player.getBank().add(new Item(995, 125000));
-						player.send(new SendMessage("[LoyaltyManager]: You've been awarded for playing for 1 hour. Your reward is your bank."));
+						player.send(new SendMessage("[LoyaltyManager]: You've been been playing for 1 hour. Your reward is in your bank."));
 					} else {
 						player.send(new SendMessage("[LoyaltyManager]: Your bank is full, so you didn't recieve a reward."));
 					}

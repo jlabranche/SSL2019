@@ -295,10 +295,10 @@ public class PlayerCommand implements Command {
 			if (parser.hasNext()) {
 				try {
 					String password = parser.nextString();
-					if ((password.length() > 4) && (password.length() < 15))
+					if ((password.length() > 6) && (password.length() < 15))
 						player.start(new ChangePasswordDialogue(player, password));
 					else
-						DialogueManager.sendStatement(player, new String[] { "Your password must be between 4 and 15 characters." });
+						DialogueManager.sendStatement(player, new String[] { "Your password must be between 6 and 15 characters." });
 				} catch (Exception e) {
 					player.getClient().queueOutgoingPacket(new SendMessage("Invalid password format, syntax: ::changepass password here"));
 				}
@@ -309,7 +309,7 @@ public class PlayerCommand implements Command {
              * Opens bank
              */
 		case "bank":
-			if (player.getRights() == 1 || player.getRights() == 2 ||  player.getRights() == 3 ||  player.getRights() == 4 || player.getRights() == 8 || player.getRights() == 13 || player.getMoneySpent() >= 150) {
+			if (player.isMod() || player.isPlatinumDonor() || player.isPlayerSupport() || player.getMoneySpent() >= 150) {
 				if (!player.inWilderness()) {
 				player.getBank().openBank();
             return true;
@@ -319,8 +319,8 @@ public class PlayerCommand implements Command {
 		 * Changes yell title
 		 */
 		case "yelltitle":
-			if (player.getRights() == 0 || player.getRights() == 5) {
-				player.send(new SendMessage("You need to be a super or extreme member to do this!"));
+			if (player.isAdmin() || player.isDonor()) {
+				player.send(new SendMessage("You need to be a donator or an admin to do this!"));
 				return true;
 			}
 			if (parser.hasNext()) {
@@ -356,7 +356,7 @@ public class PlayerCommand implements Command {
 		 * Yell to server
 		 */
 		case "yell":
-			if (player.getMoneySpent() >= 10 || player.getRights() == 2 || player.getRights() == 3 || player.getRights() == 4 ) {
+			if (player.getMoneySpent() >= 10 || player.isAdmin()) {
 			if (parser.hasNext()) {
 				try {
 					String message = parser.nextString();
@@ -375,7 +375,7 @@ public class PlayerCommand implements Command {
 		 * Handles player emptying inventory 
 		 */
 		case "empty":
-			if (player.getRights() == 2 || player.getRights() == 3) {
+			if (player.isAdmin()) {
 				player.getInventory().clear();
 				player.send(new SendMessage("You have emptied your inventory."));
 				player.send(new SendRemoveInterfaces());
@@ -392,59 +392,57 @@ public class PlayerCommand implements Command {
 		/*
 		 * Teleport player home
 		 */
-		case "home":
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(3087, 3491, 0, TeleportTypes.SPELL_BOOK);
-			return true;
-			
-		case "sdz":
-			if (player.getMoneySpent() >= 25) {
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(2099, 3914, 0, TeleportTypes.SPELL_BOOK);
-			return true;
-			}
-			
-		case "edz":
-			if (player.getMoneySpent() >= 150) {
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(2133, 4911, 0, TeleportTypes.SPELL_BOOK);
-			return true;
-			}
-			
-		case "dz":
-			if (player.getMoneySpent() >= 5) {
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				return true;
-			}
-			 {
-			player.getMagic().teleport(2827, 3344, 0, TeleportTypes.SPELL_BOOK);
-			return true;
-			}
-			}
-						
-		case "shop":
-		case "shops":
-		case "shopping":
-		case "stores":
-			
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(3080, 3509, 0, TeleportTypes.SPELL_BOOK);
-			return true;
-		}
-		return false;
-	}
+        case "home":
+            if (player.getWildernessLevel() > 20 && player.inWilderness()) {
+                player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
+                return true;
+            }
+            player.getMagic().teleport(3087, 3491, 0, TeleportTypes.SPELL_BOOK);
+            return true;
+
+        case "sdz":
+            if (player.getMoneySpent() >= 25) {
+                if (player.getWildernessLevel() > 20 && player.inWilderness()) {
+                    player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
+                    return true;
+                }
+                player.getMagic().teleport(2099, 3914, 0, TeleportTypes.SPELL_BOOK);
+                return true;
+            }
+
+        case "edz":
+            if (player.getMoneySpent() >= 150) {
+                if (player.getWildernessLevel() > 20 && player.inWilderness()) {
+                    player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
+                    return true;
+                }
+                player.getMagic().teleport(2133, 4911, 0, TeleportTypes.SPELL_BOOK);
+                return true;
+            }
+
+        case "dz":
+            if (player.getMoneySpent() >= 5) {
+                if (player.getWildernessLevel() > 20 && player.inWilderness()) {
+                    return true;
+                }
+                player.getMagic().teleport(2827, 3344, 0, TeleportTypes.SPELL_BOOK);
+                return true;
+            }
+
+        case "shop":
+        case "shops":
+        case "shopping":
+        case "stores":
+
+            if (player.getWildernessLevel() > 20 && player.inWilderness()) {
+                player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
+                return true;
+            }
+            player.getMagic().teleport(3080, 3509, 0, TeleportTypes.SPELL_BOOK);
+            return true;
+        }
+        return false;
+    }
 
 	@Override
 	public boolean meetsRequirements(Player player) {

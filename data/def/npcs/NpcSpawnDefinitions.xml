@@ -99,5 +99,38 @@
 		<walk>false</walk>
 		<face>0</face>
 	</NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Giant rat<-->
+        <id>2857</id>
+        <location>
+            <x>2625</x>
+            <y>3096</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Giant rat<-->
+        <id>2857</id>
+        <location>
+            <x>2626</x>
+            <y>3093</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Giant rat<-->
+        <id>2857</id>
+        <location>
+            <x>2623</x>
+            <y>3090</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
 	
 </list>

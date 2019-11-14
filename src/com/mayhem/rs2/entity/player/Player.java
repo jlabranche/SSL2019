@@ -1190,6 +1190,103 @@ private MysterySpin donorBox= new MysterySpin(this);
 	public int getRights() {
 		return rights;
 	}
+    public boolean isMod() {
+        switch(getRights()) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isAdmin() {
+        switch(getRights()) {
+            case 2:
+            case 3:
+            case 4:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isDeveloper() {
+        switch(getRights()) {
+            case 3:
+            case 4:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public boolean isOwner() {
+        switch(getRights()) {
+            case 4:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isPlayerSupport() {
+        switch(getRights()) {
+            case 13:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isDonor() {
+        switch(getRights()) {
+            case 5:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isSuperDonor() {
+        switch(getRights()) {
+            case 5:
+            case 6:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isExtremeDonor() {
+        switch(getRights()) {
+            case 5:
+            case 6:
+            case 7:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isPlatinumDonor() {
+        switch(getRights()) {
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                return true;
+            default:
+                return false;
+        }
+    }
+    public boolean isDiamondDonor() {
+        switch(getRights()) {
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                return true;
+            default:
+                return false;
+        }
+    }
 
 	public RunEnergy getRunEnergy() {
 		return runEnergy;
@@ -1514,23 +1611,25 @@ private MysterySpin donorBox= new MysterySpin(this);
 		appearanceUpdateRequired = true;
 		needsPlacement = true;
 		
-		if (getRights() == 4) {
-			World.sendGlobalMessage("<img=3>@dre@Owner/Developer " + username + " has logged in!");
-		} 		
-		else if (getRights() == 3) {
-			World.sendGlobalMessage("<img=3>@dre@Community Manager " + username + " has logged in!");
-		}
-		else if (getRights() == 2) {
-			World.sendGlobalMessage("<img=1><col=D17417>Server Administrator " + username + " has logged in!</col>");
-		}
-		else if (getRights() == 1) {
-			World.sendGlobalMessage("<img=0>@blu@Player Moderator " + username + " has logged in!");
-		}
-		else if (getRights() == 13) {
-			World.sendGlobalMessage("<img=12>@blu@Player Support " + username + " has logged in!");
-		}
-		else if (getRights() == 15) {
-			World.sendGlobalMessage("<img=15>@red@Youtuber " + username + " has logged in!");
+        switch(getRights()) {
+		    case 4:
+                World.sendGlobalMessage("<img=3>@dre@Owner/Developer " + username + " has logged in!");
+                break;
+		    case 3:
+                World.sendGlobalMessage("<img=3>@dre@Community Manager " + username + " has logged in!");
+                break;
+		    case 2:
+                World.sendGlobalMessage("<img=1><col=D17417>Server Administrator " + username + " has logged in!</col>");
+                break;
+		    case 1:
+                World.sendGlobalMessage("<img=0>@blu@Player Moderator " + username + " has logged in!");
+                break;
+		    case 13:
+                World.sendGlobalMessage("<img=12>@blu@Player Support " + username + " has logged in!");
+                break;
+		    case 15:
+                World.sendGlobalMessage("<img=15>@red@Youtuber " + username + " has logged in!");
+                break;
 		}
 		
 		
@@ -2212,11 +2311,11 @@ private MysterySpin donorBox= new MysterySpin(this);
 		case 6:
 			return "<col=2EB8E6>Super Donator</col>";//blue
 		 case 7:
-				return "<col=4D8528>Extreme Donator</col>";//green
+			return "<col=4D8528>Extreme Donator</col>";//green
 		case 8:
 			return "<col=E5E4E2>Platinum Donator</col>";//platinum
 		case 9:
-				return "<col=B9F2FF>Diamond Donator</col>";//diamond
+			return "<col=B9F2FF>Diamond Donator</col>";//diamond
 		case 11:
 			return "@gry@Iron Man</col>";
 		case 12:

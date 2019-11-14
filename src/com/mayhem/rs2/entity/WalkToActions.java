@@ -263,7 +263,9 @@ public class WalkToActions {
 		}
 
 		int z = player.getLocation().getZ();
-
+    	int pX = player.getLocation().getX();
+    	int pY = player.getLocation().getY();
+    	
 		GameObject object = Region.getObject(x, y, z);
 
 		if ((object == null) && (!PlayerConstants.isOverrideObjectExistance(player, id, x, y, z))) {
@@ -271,7 +273,9 @@ public class WalkToActions {
 		}
 
 		final int[] length = ObjectConstants.getObjectLength(id, object == null ? 0 : object.getFace());
-		
+		if (player.isDeveloper()) {
+			player.getClient().queueOutgoingPacket(new SendMessage("ID:"+id+" X:"+x+" Y:"+y));
+        }
 		switch (id) {
 		case 31556://rev entrace
 			if(player.getLocation().getX() >= x - 3 && player.getLocation().getX() <=x + 3) {
@@ -283,6 +287,7 @@ public class WalkToActions {
 			player.teleport(new Location(3126,3833));
 			}
 		break;
+
 		case 29241:
 			player.getSpecialAttack().setSpecialAmount(player.getSpecialAttack().FULL_SPECIAL);
 			player.getSkill().setLevel(Skills.PRAYER, player.getMaxLevels()[Skills.PRAYER]);
@@ -1021,14 +1026,16 @@ public class WalkToActions {
 	}
 
 	public static void finishObjectClick(Player player, int id, int option, int x, int y) {
-		int z = player.getLocation().getZ();
-		
+    	int pX = player.getLocation().getX();
+    	int pY = player.getLocation().getY();
+		int pZ = player.getLocation().getZ();
+    	
 		if (player.getMagic().isTeleporting()) {
 			return;
 		}
 
 		if (PlayerConstants.isOwner(player)) {
-			GameObject o = Region.getObject(x, y, player.getLocation().getZ());
+			GameObject o = Region.getObject(x, y, pZ);
 			if (o != null) {
 				player.getClient().queueOutgoingPacket(new SendMessage("Object option: " + option + " id: " + id + " x: " + x + " y: " + y + " face: " + o.getFace() + " type: " + o.getType()));
 			} else {
@@ -1043,23 +1050,23 @@ public class WalkToActions {
 			if (o != null) {
 				if (o.getFace() == 1 || o.getFace() == 3) {
 					if (player.getX() > x) {
-						player.teleport(new Location(player.getX() - 2, player.getY()));
+						player.teleport(new Location(pX - 2, pY));
 					} else {
-						player.teleport(new Location(player.getX() + 2, player.getY()));
+						player.teleport(new Location(pX + 2, pY));
 					}
 				} else {
 					if (player.getY() > y) {
-						player.teleport(new Location(player.getX(), player.getY() - 2));
+						player.teleport(new Location(pX, pY - 2));
 					} else {
-						player.teleport(new Location(player.getX(), player.getY() + 2));
+						player.teleport(new Location(pX, pY + 2));
 					}
 				}
 			}
 		}
-		
+
 		if (id == 5249) {
 			ArrayList<LogData> possiblities = new ArrayList<LogData>();
-			GameObject object = Region.getObject(x, y, z);
+			GameObject object = Region.getObject(x, y, pZ);
 			for (LogData log : LogData.values()) {
 				if (player.getInventory().hasItemId(log.getLogId())) {
 					possiblities.add(log);
@@ -1089,10 +1096,10 @@ public class WalkToActions {
 				return;
 			}
 
-			GameObject o = Region.getObject(x, y, player.getLocation().getZ());
+			GameObject o = Region.getObject(x, y, pZ);
 
 			if (o == null) {
-				o = new GameObject(x, y, z, id, 10, 0);
+				o = new GameObject(x, y, pZ, id, 10, 0);
 			}
 			
 			if (PyramidPlunder.SINGLETON.clickObject(player, o)) {
@@ -1104,10 +1111,73 @@ public class WalkToActions {
 			return;
 		}
 
-		if (Doors.isDoorJammed(player, x, y, z)) {
+		if (Doors.isDoorJammed(player, x, y, pZ)) {
 			return;
 		}
-
+        switch(id) {
+        case 16665:
+        	if (x == 2603 && y == 9478) {
+        		player.teleport(new Location(2606, 3079));
+        	}
+        	break;
+        case 16664:
+        	int redKey = 1543;
+        	if (!player.getInventory().hasItemId(redKey)) {
+        		DialogueManager.sendItem1(player, "A red key is required to use these stairs!", redKey);
+        		return;
+        	}
+        	player.teleport(new Location(2602,9479));
+        	break;
+        case 15656:
+        	if (x == 2620 && y == 9497) {
+        		player.teleport(new Location(2614,9505));
+        	}
+        	break;
+        case 23564:
+        	if (x == 2615 && y == 9504) {
+        		player.teleport(new Location(2620,9496));
+        	}
+        	break;
+        case 23567:
+        	if ((x == 2597 || x == 2598) && y == 9489) {
+	        	int orangeKey = 1544;
+	        	if (!player.getInventory().hasItemId(orangeKey)) {
+	        		DialogueManager.sendItem1(player, "An orange key is required to use these monkeybars!", orangeKey);
+	        		return;
+	        	}
+				player.getMovementHandler().walkTo(2598-pX, 9494-pY);
+        	}
+        	if ((x == 2597 || x == 2598) && y == 9494) {
+        		player.getMovementHandler().walkTo(2598-pX, 9489-pY);
+        	}
+        	break;
+        case 23140:
+        	if (x == 2576 && y == 9506) {
+	        	int yellowKey = 1545;
+	        	if (!player.getInventory().hasItemId(yellowKey)) {
+	        		DialogueManager.sendItem1(player, "A yellow key is required to use these monkeybars!", yellowKey);
+	        		return;
+	        	}
+				player.getMovementHandler().walkTo(2572-pX, 9506-pY);
+        	}
+        	if (x == 2573 && y == 9506) {
+        		player.getMovementHandler().walkTo(2578-pX, 9506-pY);
+        	}
+        	break;
+        case 23548:
+        	if (x == 2580 && y == 9513) {
+	        	int blueKey = 1546;
+	        	if (!player.getInventory().hasItemId(blueKey)) {
+	        		DialogueManager.sendItem1(player, "A blue key is required to use these monkeybars!", blueKey);
+	        		return;
+	        	}
+				player.getMovementHandler().walkTo(2580-pX, 9520-pY);
+        	}
+        	if (x == 2580 && y == 9519) {
+        		player.getMovementHandler().walkTo(2580-pX, 9512-pY);
+        	}
+        	break;
+        }
 		if ((id == 1738) && (x == 2839) && (y == 3537)) {
 			player.teleport(new Location(2839, 3537, 2));
 			return;
@@ -1159,7 +1229,7 @@ public class WalkToActions {
 			return;
 		}
 		
-		if (WeaponGame.objectClick(player, id, x, y, z)) {
+		if (WeaponGame.objectClick(player, id, x, y, pZ)) {
 			return;
 		}
 
@@ -1169,7 +1239,7 @@ public class WalkToActions {
 				return;
 			}
 
-			if (GodWars.clickObject(player, id, x, y, z)) {
+			if (GodWars.clickObject(player, id, x, y, pZ)) {
 				return;
 			}
 
@@ -1177,7 +1247,7 @@ public class WalkToActions {
 				return;
 			}
 
-			if (Barrows.clickObject(player, id, x, y, z)) {
+			if (Barrows.clickObject(player, id, x, y, pZ)) {
 				return;
 			}
 
@@ -1240,8 +1310,8 @@ public class WalkToActions {
 				return;
 			}
 
-			ThievingStallTask.attemptStealFromStall(player, id, new Location(x, y, z));
-			RunecraftingTask.attemptRunecrafting(player, new GameObject(id, x, y, z, 10, 0));
+			ThievingStallTask.attemptStealFromStall(player, id, new Location(x, y, pZ));
+			RunecraftingTask.attemptRunecrafting(player, new GameObject(id, x, y, pZ, 10, 0));
 			
 			if (Mining.clickRock(player, Region.getObject(x, y, player.getLocation().getZ()))) {
 				return;
@@ -1537,10 +1607,10 @@ public class WalkToActions {
 						player.getInventory().remove(995, 7500);						
 					}
 					player.send(new SendMessage("You have paid 7,500 coins and entered the resource arena."));
-					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(x, y - 1, z)));
+					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, pZ, new Location(x, y - 1, pZ)));
 				} else {
 					player.getAttributes().set("stopMovement", Boolean.valueOf(true));
-					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(x, y + 1, z)));
+					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, pZ, new Location(x, y + 1, pZ)));
 				}
 				break;
 			case 10230:// Dagganoth Kings
@@ -1684,7 +1754,7 @@ public class WalkToActions {
 			case 2558:
 				if (player.getX() == 3038 && player.getY() == 3956 || player.getX() == 3044 && player.getY() == 3956 || player.getX() == 3041 && player.getY() == 3959 || player.getX() == 3190 && player.getY() == 3957 || player.getX() == 3191 && player.getY() == 3963) {
 					player.getUpdateFlags().sendAnimation(new Animation(2246));
-					Task task = new Lockpick(player, (byte) 2, id, x, y, z);
+					Task task = new Lockpick(player, (byte) 2, id, x, y, pZ);
 					player.getAttributes().set("lockPick", task);
 					TaskQueue.queue(task);
 				} else {
@@ -1738,7 +1808,7 @@ public class WalkToActions {
 				player.getSkill().lock(4);
 
 				if (player.getLocation().getY() < 3917) {
-					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(2998, 3931, z)) {
+					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, pZ, new Location(2998, 3931, pZ)) {
 						DoubleDoor normalDoor = Region.getDoubleDoor(2998, 3931, 0);
 						boolean stopBalance = false;
 						WalkInteraction balance;
@@ -1858,7 +1928,7 @@ public class WalkToActions {
 				player.getSkill().lock(4);
 
 				if (player.getLocation().getY() >= 3931) {
-					TaskQueue.queue(new WalkThroughDoubleDoorTask(player, x, y, z, new Location(2998, 3931, z)) {
+					TaskQueue.queue(new WalkThroughDoubleDoorTask(player, x, y, pZ, new Location(2998, 3931, pZ)) {
 						Door normalDoor = Region.getDoor(2998, 3917, 0);
 						boolean stopBalance = false;
 						WalkInteraction balance;
@@ -2300,9 +2370,9 @@ public class WalkToActions {
 				}
 				player.getSkill().lock(4);
 				if (player.getLocation().getY() >= 3556) {
-					TaskQueue.queue(new WalkThroughDoubleDoorTask(player, x, y, z, new Location(x, y - 1, z)));
+					TaskQueue.queue(new WalkThroughDoubleDoorTask(player, x, y, pZ, new Location(x, y - 1, pZ)));
 				} else {
-					TaskQueue.queue(new WalkThroughDoubleDoorTask(player, x, y, z, new Location(x, y + 1, z)));
+					TaskQueue.queue(new WalkThroughDoubleDoorTask(player, x, y, pZ, new Location(x, y + 1, pZ)));
 				}
 
 				break;
@@ -2312,9 +2382,9 @@ public class WalkToActions {
 				}
 				player.getSkill().lock(4);
 				if (player.getLocation().getY() <= 3554) {
-					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(3445, 3555, z)));
+					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, pZ, new Location(3445, 3555, pZ)));
 				} else {
-					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(3445, 3554, z)));
+					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, pZ, new Location(3445, 3554, pZ)));
 				}
 				break;
 			case 1596:
@@ -2450,7 +2520,7 @@ public class WalkToActions {
 				return;
 			}
 
-			Location location = new Location(x, y, z);
+			Location location = new Location(x, y, pZ);
 			ThievingStallTask.attemptStealFromStall(player, id, location);
 			HomeStalls.attempt(player, id, location);
 			if (DwarfMultiCannon.hasCannon(player)) {
@@ -2497,7 +2567,7 @@ public class WalkToActions {
 					return;
 				}
 				player.getClient().queueOutgoingPacket(new SendMessage("You attempt to pick the lock..."));
-				Task task = new Lockpick(player, (byte) 2, id, x, y, z);
+				Task task = new Lockpick(player, (byte) 2, id, x, y, pZ);
 				player.getAttributes().set("lockPick", task);
 				TaskQueue.queue(task);
 				break;
@@ -2532,7 +2602,7 @@ public class WalkToActions {
 				SmithingConstants.sendSmeltSelectionInterface(player);
 				break;
 			case 14896:
-				TaskQueue.queue(new HarvestTask(player, id, 1779, x, y, z));
+				TaskQueue.queue(new HarvestTask(player, id, 1779, x, y, pZ));
 				break;
 			case 1293:
 				player.teleport(new Location(2461, 3434, 0));
