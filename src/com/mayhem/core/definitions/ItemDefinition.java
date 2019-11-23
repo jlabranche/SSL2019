@@ -68,6 +68,4 @@ public class ItemDefinition {
 	public void setHighAlch(int highAlch) {
 		this.highAlch = highAlch;
 	}
-	
-	
 }

@@ -5,11 +5,11 @@
         <name>General Store</name>
         <general>true</general>
         <items>
-             <item>
+            <item>
                 <id>10010</id>
                 <amount>100</amount>
             </item>
-             <item>
+            <item>
                 <id>11260</id>
                 <amount>100</amount>
             </item>
@@ -30,25 +30,37 @@
                 <amount>3000</amount>
             </item>
             <item>
+                <id>2347</id>
+                <amount>100</amount>
+            </item>
+            <item>
                 <id>1755</id>
                 <amount>50000</amount>
             </item>
-			   <item>
+            <item>
                 <id>946</id>
                 <amount>50000</amount>
             </item>
-			   <item>
+            <item>
                 <id>952</id>
                 <amount>50000</amount>
             </item>			
-				<item>
-					<id>12938</id>
-					<amount>50000</amount>
-			</item>
-				<item>
-					<id>1540</id>
-					<amount>100</amount>
-			</item>
+            <item>
+                <id>12938</id>
+                <amount>50000</amount>
+            </item>
+            <item>
+                <id>1540</id>
+                <amount>100</amount>
+            </item>
+            <item>
+                <id>1265</id>
+                <amount>100</amount>
+            </item>
+            <item>
+                <id>1351</id>
+                <amount>100</amount>
+            </item>
         </items>
     </ShopDefinition>
 

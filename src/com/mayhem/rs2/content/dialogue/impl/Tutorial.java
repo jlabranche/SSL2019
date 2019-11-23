@@ -92,7 +92,7 @@ public class Tutorial extends Dialogue {
 		case 0:
 			end();
 			StarterKit.handle(player, 202051);
-            player.getSkill().addExperience(Skills.HITPOINTS, 1155); // enough xp to get lvl 10 health
+            player.getSkill().setExperience(Skills.HITPOINTS, 1155); // enough xp to get lvl 10 health
 			player.send(new SendInterface(51750));
 			break;
 		}

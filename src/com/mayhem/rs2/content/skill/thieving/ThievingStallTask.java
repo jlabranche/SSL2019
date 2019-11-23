@@ -9,6 +9,7 @@ import com.mayhem.rs2.entity.Location;
 import com.mayhem.rs2.entity.item.Item;
 import com.mayhem.rs2.entity.player.Player;
 import com.mayhem.rs2.entity.player.net.out.impl.SendMessage;
+import com.mayhem.rs2.content.skill.Skills;
 
 public class ThievingStallTask extends Task {
 	
@@ -38,7 +39,7 @@ public class ThievingStallTask extends Task {
 			player.getClient().queueOutgoingPacket(new SendMessage("You don't have enough inventory spaces left to hold this."));
 			return false;
 		}
-		if (player.getSkill().getLevels()[17] <= data.getLevelRequired()) {
+		if (player.getSkill().getLevels()[Skills.THIEVING] <= data.getLevelRequired()) {
 			player.getClient().queueOutgoingPacket(new SendMessage("You need a thieving level of " + data.getLevelRequired() + " to steal from this stall."));
 			return false;
 		}
@@ -74,9 +75,9 @@ public class ThievingStallTask extends Task {
 		player.getInventory().add(new Item(data.getRewards()[randomItem][0], data.getRewards()[randomItem][1]));
 
 		if (data.getRewards()[randomItem][0] == 995) {
-			player.getClient().queueOutgoingPacket(new SendMessage("You steal " + data.getRewards()[randomItem][1] + "gp from the stall."));
+			player.getClient().queueOutgoingPacket(new SendMessage("You manage to steal " + data.getRewards()[randomItem][1] + " gold from the stall!"));
 		}
 		
-		player.getSkill().addExperience(17, data.getExperience());
+		player.getSkill().addExperience(Skills.THIEVING, data.getExperience());
 	}
 }

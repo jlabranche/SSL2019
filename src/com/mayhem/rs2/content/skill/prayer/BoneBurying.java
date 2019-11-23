@@ -10,6 +10,7 @@ import com.mayhem.core.task.Task.StackType;
 import com.mayhem.core.task.impl.TaskIdentifier;
 import com.mayhem.rs2.content.achievements.AchievementHandler;
 import com.mayhem.rs2.content.achievements.AchievementList;
+import com.mayhem.rs2.content.skill.Skills;
 import com.mayhem.rs2.entity.item.Item;
 import com.mayhem.rs2.entity.player.Player;
 import com.mayhem.rs2.entity.player.net.out.impl.SendMessage;
@@ -85,7 +86,7 @@ public class BoneBurying {
 		player.getUpdateFlags().sendAnimation(827, 0);
 		player.getClient().queueOutgoingPacket(new SendMessage("You bury the " + Item.getDefinition(bones.id).getName() + "."));
 		player.getInventory().clear(slot);
-		player.getSkill().addExperience(5, bones.experience);
+		player.getSkill().addExperience(Skills.PRAYER, bones.experience);
 		player.skillPoints += 25;
 		AchievementHandler.activate(player, AchievementList.BURY_150_BONES, 1);
 		AchievementHandler.activate(player, AchievementList.BURY_1000_BONES, 1);
@@ -120,7 +121,7 @@ public class BoneBurying {
 
 		player.getUpdateFlags().sendAnimation(645, 5);
 		player.getInventory().remove(new Item(item, amount));
-		player.getSkill().addExperience(5, (bones.experience * 2.0D) * amount);
+		player.getSkill().addExperience(Skills.PRAYER, (bones.experience * 2.0D) * amount);
 		player.skillPoints += 20;
 		AchievementHandler.activate(player, AchievementList.BURY_150_BONES, 1);
 		AchievementHandler.activate(player, AchievementList.BURY_1000_BONES, 1);
@@ -155,7 +156,7 @@ public class BoneBurying {
 					p.getUpdateFlags().sendAnimation(645, 5);
 					p.getInventory().remove(item);
 					p.skillPoints += 20;
-					p.getSkill().addExperience(5, bones.experience * 2.0);
+					p.getSkill().addExperience(Skills.PRAYER, bones.experience * 2.0);
 				}
 
 				@Override

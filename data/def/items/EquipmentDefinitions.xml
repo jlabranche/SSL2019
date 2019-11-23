@@ -4117,7 +4117,7 @@
 	</EquipmentDefinition>
 	<EquipmentDefinition>
 		<id>1007</id>
-		<slot>0</slot>
+		<slot>1</slot>
 		<requirements>
 			<int>1</int>
 			<int>1</int>

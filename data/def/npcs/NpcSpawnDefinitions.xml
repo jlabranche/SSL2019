@@ -24,7 +24,7 @@
 	</NpcSpawnDefinition>
 	<NpcSpawnDefinition>
 	<!-->Moss giant<-->
-		<id>891</id>
+		<id>2090</id>
 		<location>
 			<x>2578</x>
 			<y>3083</y>
@@ -46,7 +46,7 @@
 	</NpcSpawnDefinition>
 	<NpcSpawnDefinition>
 	<!-->Moss giant<-->
-		<id>891</id>
+		<id>2090</id>
 		<location>
 			<x>2574</x>
 			<y>3081</y>
@@ -57,7 +57,7 @@
 	</NpcSpawnDefinition>
 	<NpcSpawnDefinition>
 	<!-->Moss giant<-->
-		<id>891</id>
+		<id>2090</id>
 		<location>
 			<x>2580</x>
 			<y>3077</y>
@@ -68,7 +68,7 @@
 	</NpcSpawnDefinition>
 	<NpcSpawnDefinition>
 	<!-->Moss giant<-->
-		<id>891</id>
+		<id>2090</id>
 		<location>
 			<x>2574</x>
 			<y>3077</y>
@@ -79,7 +79,7 @@
 	</NpcSpawnDefinition>
 	<NpcSpawnDefinition>
 	<!-->Moss giant<-->
-		<id>891</id>
+		<id>2090</id>
 		<location>
 			<x>2576</x>
 			<y>3085</y>
@@ -132,5 +132,193 @@
         <walk>true</walk>
         <face>0</face>
     </NpcSpawnDefinition>
-	
+    <NpcSpawnDefinition>
+    <!-->Giant rat<-->
+        <id>2510</id>
+        <location>
+            <x>2629</x>
+            <y>3085</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Yanille Chicken<-->
+        <id>2692</id>
+        <location>
+            <x>2612</x>
+            <y>3103</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Yanille Chicken<-->
+        <id>2692</id>
+        <location>
+            <x>2611</x>
+            <y>3103</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Yanille Chicken<-->
+        <id>2692</id>
+        <location>
+            <x>2614</x>
+            <y>3100</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+    <!-->Yanille Chicken<-->
+        <id>2693</id>
+        <location>
+            <x>2610</x>
+            <y>3103</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>0</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Suqah<-->
+        <id>787</id>
+        <location>
+            <x>2578</x>
+            <y>9499</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Goblin<-->
+        <id>2489</id>
+        <location>
+            <x>2621</x>
+            <y>3119</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Goblin<-->
+        <id>2489</id>
+        <location>
+            <x>2625</x>
+            <y>3124</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Goblin<-->
+        <id>2489</id>
+        <location>
+            <x>2612</x>
+            <y>3134</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Goblin<-->
+        <id>2489</id>
+        <location>
+            <x>2610</x>
+            <y>3124</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Goblin<-->
+        <id>2489</id>
+        <location>
+            <x>2592</x>
+            <y>3123</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Goblin<-->
+        <id>2488</id>
+        <location>
+            <x>2615</x>
+            <y>3138</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Hobgoblin<-->
+        <id>3286</id>
+        <location>
+            <x>2595</x>
+            <y>3127</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Hobgoblin<-->
+        <id>3286</id>
+        <location>
+            <x>2595</x>
+            <y>3132</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Hobgoblin<-->
+        <id>3286</id>
+        <location>
+            <x>2600</x>
+            <y>3133</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Hobgoblin<-->
+        <id>3286</id>
+        <location>
+            <x>2577</x>
+            <y>3130</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    <NpcSpawnDefinition>
+        <!-->Hobgoblin<-->
+        <id>3050</id>
+        <location>
+            <x>2582</x>
+            <y>3124</y>
+            <z>0</z>
+        </location>
+        <walk>true</walk>
+        <face>1</face>
+    </NpcSpawnDefinition>
+    
+    
 </list>

@@ -353,6 +353,59 @@ public class Skill {
 	 *            The amount of experience too add
 	 * @return
 	 */
+    public double setExperience(int id, double experience) {
+        if ((expLock) && (id <= 6)) {
+            return 0;
+        }
+
+        this.experience[id] = experience;
+
+		if (player.getMaxLevels()[id] == 99 && id != DUNGEONEERING || player.getMaxLevels()[id] == 120 && id == DUNGEONEERING) {
+			if (this.experience[id] < 200_000_000) {
+				player.send(new SendExpCounter(id, (int) experience));
+			}
+			
+			if (this.experience[id] >= 200000000) {
+				this.experience[id] = 200000000;
+			}
+			update(id);
+			return experience;
+		}
+        int newLevel = getLevelForExperience(id, this.experience[id]);
+
+        if (newLevel > 99 && id != DUNGEONEERING) {
+            newLevel = 99;
+        }
+
+        if (newLevel > 120 && id == DUNGEONEERING) {
+            newLevel = 120;
+        }
+
+        if (player.getMaxLevels()[id] < newLevel) {
+            getLevels()[id] = ((short) (newLevel - (player.getMaxLevels()[id] - getLevels()[id])));
+            player.getMaxLevels()[id] = ((short) (newLevel));
+
+            updateTotalLevel();
+
+            onLevelup(newLevel, id);
+
+            player.setAppearanceUpdateRequired(true);
+
+            if (id == DUNGEONEERING ? newLevel == 120 : newLevel == 99) {
+                World.sendGlobalMessage("<col=855907><img=12> "+player.getUsername() + " has achieved level " + 99 + " in " + Skills.SKILL_NAMES[id] + "! Prestige level: " + player.getSkillPrestiges()[id]);
+            }
+        }
+
+        if (this.experience[id] >= 200000000) {
+            this.experience[id] = 200000000;
+        } else {
+            player.send(new SendExpCounter(id, (int) experience));
+        }
+
+        update(id);
+        return experience;
+    }
+
 	public double addExperience(int id, double experience) {
 		if ((expLock) && (id <= 6)) {
 			return 0;
