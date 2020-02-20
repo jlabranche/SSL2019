@@ -19000,6 +19000,65 @@
         </melee>
     </NpcCombatDefinition>
     <NpcCombatDefinition>
+        <!-- Black knight Titan -->
+        <id>4067</id>
+        <combatType>MELEE</combatType>
+        <respawnTime>30</respawnTime>
+        <block>
+            <id>285</id>
+            <delay>0</delay>
+        </block>
+        <death>
+            <id>287</id>
+            <delay>0</delay>
+        </death>
+        <skills>
+            <skill>
+                <id>0</id>
+                <level>80</level>
+            </skill>
+            <skill>
+                <id>1</id>
+                <level>80</level>
+            </skill>
+            <skill>
+                <id>2</id>
+                <level>65</level>
+            </skill>
+            <skill>
+                <id>3</id>
+                <level>142</level>
+            </skill>
+        </skills>
+        <bonuses>
+            <int>91</int>
+            <int>100</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+            <int>91</int>
+        </bonuses>
+        <melee>
+            <melee>
+                <attack>
+                    <hitDelay>1</hitDelay>
+                    <attackDelay>4</attackDelay>
+                </attack>
+                <animation>
+                    <id>284</id>
+                    <delay>0</delay>
+                </animation>
+                <max>1</max>
+            </melee>
+        </melee>
+    </NpcCombatDefinition>
+    <NpcCombatDefinition>
         <!-- Mugger -->
         <id>175</id>
         <combatType>MELEE</combatType>
